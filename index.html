@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="root.css">
+  <title>Taks 3 Design System</title>
+</head>
+<body>
+
+<div class="shadow">
+    <div class="form-group">
+        <input type="text" class="input large icon-left" placeholder="Enter text"><br>
+        <button class="button primary" id="submitButton">Submit</button>
+      </div>
+</div>
+  <script>
+    document.getElementById('submitButton').addEventListener('click', function() {
+      const button = this;
+      button.classList.add('loading');
+      button.disabled = true;
+      
+      // Save the original text
+      const originalText = button.textContent;
+      
+      // Change the text to "Loading..."
+      button.textContent = "Loading...";
+
+      setTimeout(function() {
+        button.classList.remove('loading');
+        button.classList.add('disabled');
+        button.textContent = originalText; // Revert to the original text
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
